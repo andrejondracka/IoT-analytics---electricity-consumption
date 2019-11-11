@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "###fridge consumption\n\nmeter_data_laundry2 <- meter_data[,c('DateTime', 'Laundry Room')]\n\n\nplot(meter_data_laundry2$DateTime[1380:2820], \n     meter_data_laundry2$`Laundry Room`[1380:2820], type = 'l',\n     xlab = 'hour', ylab = 'energy consumption (Wh)')\n\nmeter_data_laundry <- meter_data[,c('Date', 'Laundry Room')]\nmeter_data_offdays <- data.frame(matrix(ncol = 2, nrow = 0))\ncolnames(meter_data_offdays) <- c('Date', 'Laundry Room')\n  \nbla <- unique(meter_data_laundry$Date)\n\n\nfor (ii in bla) {\n  tempdata = meter_data_laundry[meter_data_laundry$Date == ii,]\n  \n  if (max(tempdata$`Laundry Room`) == 2) {\n    meter_data_offdays <- rbind (meter_data_offdays, tempdata)\n  }\n}\n\nmeter_data_offdays_daily <- meter_data_offdays %>% group_by(Date) %>% summarize(`Laundry Room` = sum(`Laundry Room`))\nmeter_data_offdays_daily$Date <- as.POSIXct(meter_data_offdays_daily$Date)\n\nplot(meter_data_offdays_daily$Date, meter_data_offdays_daily$`Laundry Room`)\nmeter_data_daily_offrem <- subset(meter_data_offdays_daily, `Laundry Room` < 1000)\n\nplot(meter_data_daily_offrem$Date, meter_data_daily_offrem$`Laundry Room`)\n\nmeter_data_daily_offrem$Daydiff <- (meter_data_daily_offrem$Date - meter_data_daily_offrem$Date[1]) / 86400\n\nlinfit <- lm(meter_data_daily_offrem$`Laundry Room` ~ meter_data_daily_offrem$Daydiff)\nlinfit$coefficients[2] * 365\n\nmeter_data_daily_offrem$fit <- meter_data_daily_offrem$Daydiff*linfit$coefficients[2] + linfit$coefficients[1]\n\nplot(meter_data_daily_offrem$Date, meter_data_daily_offrem$`Laundry Room`, xlab = 'Year', ylab = 'Daily consumption (Wh)')\nlines(meter_data_daily_offrem$Date, meter_data_daily_offrem$fit, col = 'red')\n",
+    "created" : 1572952294331.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3748831574",
+    "id" : "D651712D",
+    "lastKnownWriteTime" : 1573052342,
+    "last_content_update" : 1573052342240,
+    "path" : "~/Documents/ubiqum/module3_prediction/fridge.R",
+    "project_path" : "fridge.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1572953778479.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "AFBE948E",
+    "lastKnownWriteTime" : 2317443264908623872,
+    "last_content_update" : 1572953778479,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "39F10CA8",
+        "caption" : "meter_data_offdays_daily",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=meter_data_offdays_daily&cache_key=39F10CA8",
+        "displayedObservations" : 691,
+        "environment" : "",
+        "object" : "meter_data_offdays_daily",
+        "preview" : 0,
+        "totalObservations" : 691,
+        "variables" : 2
+    },
+    "relative_order" : 13,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

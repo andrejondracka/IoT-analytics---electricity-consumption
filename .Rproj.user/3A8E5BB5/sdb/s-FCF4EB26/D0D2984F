@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "###export the reduced dataset\n\nmeter_data <- meter_data[lubridate::year(meter_data$DateTime) == 2009,]\nmeter_data <- meter_data[lubridate::month(meter_data$DateTime) == 12,]\n\nminutedata_dec09 <- gather(meter_data, key = 'meter', value = 'consumption', \n                           Kitchen, `Hot water/AC`, `Laundry Room`, Other, Total)\n\nwrite.csv(minutedata_dec09, file = 'minutedata.csv')\n",
+    "created" : 1573037037236.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3800489739",
+    "id" : "D0D2984F",
+    "lastKnownWriteTime" : 1573047120,
+    "last_content_update" : 1573047120974,
+    "path" : "~/Documents/ubiqum/module3_prediction/exporting_tableau.R",
+    "project_path" : "exporting_tableau.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 16,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

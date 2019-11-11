@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573055078486.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "31945584",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1573055078486,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "AD68FF8D",
+        "caption" : "monthly_total",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=monthly_total&cache_key=AD68FF8D",
+        "displayedObservations" : 47,
+        "environment" : "",
+        "object" : "monthly_total",
+        "preview" : 0,
+        "totalObservations" : 47,
+        "variables" : 3
+    },
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

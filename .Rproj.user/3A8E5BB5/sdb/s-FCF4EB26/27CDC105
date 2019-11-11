@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573049165036.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "27CDC105",
+    "lastKnownWriteTime" : 6155905064,
+    "last_content_update" : 1573049165036,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "A36D2C17",
+        "caption" : "meter_total_byday",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=meter_total_byday&cache_key=A36D2C17",
+        "displayedObservations" : "1417",
+        "environment" : "",
+        "object" : "meter_total_byday",
+        "preview" : "0",
+        "totalObservations" : "1417",
+        "variables" : "9"
+    },
+    "relative_order" : 11,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

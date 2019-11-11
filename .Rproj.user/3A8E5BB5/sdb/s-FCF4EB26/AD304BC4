@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(Metrics)\n\n\nload('granulardata.Rdata')\n\nmonthly_total <- data.frame(granular_data$Month[c('ds','Total')])\nmonthly_total$data <- ifelse(lubridate::year(monthly_total$ds) == 2010, 'Test', 'Train')\n\nggplot(data = monthly_total, aes(x = ds, y = Total, color = data, size = data)) + \n  geom_line() + scale_size_manual(values=c('Train' = 3, 'Test' = 1)) + xlab('Year') +\n  ylab('Monthly consumption (kWh)')\n\n\n\n\n\nmonthly_total_train <- monthly_total[1:36,]\nmonthly_total_test <- monthly_total[37:47,]\n\nmonthly_total_ts <- ts(monthly_total_train$Total, frequency = 12)\n\n#auto arima\nautoarima_t <- auto.arima(monthly_total_ts)\nautoarima_fc <- forecast(autoarima_t, h = 11)\n\nplot(autoarima_fc)\n\n#holt winters\nhws_t <- HoltWinters(monthly_total_ts)\nhws_fc <- forecast(hws_t, h = 11)\n\nplot(hws_fc)\n\n#lm\nlinmodel_t <- tslm(monthly_total_ts ~ trend + season)\nlinmodel_fc <- forecast(linmodel_t, h = 11)\n\nplot(linmodel_fc)\n\n\n###error analysis \nerrors <- data.frame(cbind(monthly_total_test$Total, autoarima_fc$mean, hws_fc$mean, linmodel_fc$mean))\ncolnames(errors) <- c('real data', 'ARIMA auto', 'Holt Winters', 'Linear model')\n\nerrors$`month in 2010` <- c(1:11)\n\nmapes <- c(mape(errors$monthly_total_test.Total, errors$autoarima_fc.mean),\n           mape(errors$monthly_total_test.Total, errors$hws_fc.mean),\n           mape(errors$monthly_total_test.Total, errors$linmodel_fc.mean))\n\nerrors2 <- gather(errors, key = 'model', value = 'Energy consumption (kWh)', \n                  `real data`, `ARIMA auto`, `Holt Winters`, `Linear model`)\n\n\nggplot(data = errors2, aes(x = `month in 2010`, y = `Energy consumption (kWh)`, color = model, size = model)) +\n  geom_line() + scale_size_manual(values=c('real data' = 2, `ARIMA auto` = 1,\n                                           `Holt Winters` = 1, `Linear model` = 1))\n\n\nplot(c(1:11), errors$monthly_total_test.Total, type='l')\nlines(c(1:11), errors$autoarima_fc.mean, col = 'red')\nlines(c(1:11), errors$hws_fc.mean, col = 'blue')\nlines(c(1:11), errors$linmodel_fc.mean, col = 'green')\n\n\n\n\n\nplot(meter_data$`Laundry Room`[1569835:1570835], type = 'l', col = 'red')\nlines(meter_data$`Laundry Room`[1:1000], col = 'blue')\n\n\n\n",
+    "created" : 1573053090645.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2059850624",
+    "id" : "AD304BC4",
+    "lastKnownWriteTime" : 1573116235,
+    "last_content_update" : 1573116235688,
+    "path" : "~/Documents/ubiqum/module3_prediction/predictions_total.R",
+    "project_path" : "predictions_total.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 14,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

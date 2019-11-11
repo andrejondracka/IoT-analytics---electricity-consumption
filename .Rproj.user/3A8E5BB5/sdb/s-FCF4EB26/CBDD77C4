@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1572954947001.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CBDD77C4",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : 1572954947001,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "3031A25D",
+        "caption" : "meter_data_daily_offrem",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=meter_data_daily_offrem&cache_key=3031A25D",
+        "displayedObservations" : "678",
+        "environment" : "",
+        "object" : "meter_data_daily_offrem",
+        "preview" : "0",
+        "totalObservations" : "678",
+        "variables" : "4"
+    },
+    "relative_order" : 14,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
